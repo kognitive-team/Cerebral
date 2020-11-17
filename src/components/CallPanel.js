@@ -63,6 +63,7 @@ const CallPanel = () => {
       loginPopup: false,
       loginPopupAutoClose: false,
       region: "us-east-1",
+      ccpLoadTimeout: 25000,
       softphone: {
         allowFramedSoftphone: true
       }
