@@ -66,14 +66,23 @@ const CallPanel = () => {
   
     connect.core.initCCP(divContainer, {
       ccpUrl: instanceURL,            // REQUIRED
-         
-      loginPopup: false,
-      loginPopupAutoClose: true,        
-      softphone: {
-          allowFramedSoftphone: true
-      }
-     })
-
+      loginPopup: false,               // optional, defaults to `true`
+      loginPopupAutoClose: false,      // optional, defaults to `true`
+      loginOptions: {                 // optional, if provided opens login in new window
+        autoClose: false,              // optional, defaults to `false`
+        height: 600,                  // optional, defaults to 578
+        width: 400,                   // optional, defaults to 433
+        top: 0,                       // optional, defaults to 0
+        left: 0                       // optional, defaults to 0
+      },
+      region: "eu-central-1",         // REQUIRED for `CHAT`, optional otherwise
+      softphone: {                    // optional
+        allowFramedSoftphone: true,   // optional
+        disableRingtone: false,       // optional
+        ringtoneUrl: "./ringtone.mp3" // optional
+       }
+     });
+  
      connect.agent(subscribeToAgentEvents);
 
   
