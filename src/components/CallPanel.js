@@ -31,21 +31,28 @@ class CallPanel extends React.Component {
 }
 
 componentDidMount() {
-  const divContainer = document.createElement("divContainer")
+  const containerDiv = document.createElement("containerDiv")
   const connect = window.connect;
-  const instanceURL = "https://lonebridge.awsapps.com/connect/ccp#" 
+  const instanceURL = "https://lonebridge.awsapps.com/connect/ccp-v2" 
 
   console.log(connect)
-    connect.core.initCCP(divContainer, {
-      ccpUrl: instanceURL,
-      ccpLoadTimeout: 25000,
-      loginPopup: true,
-      loginPopupAutoClose: true,
-      region: "us-east-1",
-     
-      softphone: {
-        allowFramedSoftphone: true
-      }
+  connect.core.initCCP(containerDiv, {
+    ccpUrl: instanceURL,            // REQUIRED
+    loginPopup: true,               // optional, defaults to `true`
+    loginPopupAutoClose: true,      // optional, defaults to `true`
+    loginOptions: {                 // optional, if provided opens login in new window
+      autoClose: true,              // optional, defaults to `false`
+      height: 600,                  // optional, defaults to 578
+      width: 400,                   // optional, defaults to 433
+      top: 0,                       // optional, defaults to 0
+      left: 0                       // optional, defaults to 0
+    },
+    region: "us-east-1",         // REQUIRED for `CHAT`, optional otherwise
+    softphone: {                    // optional
+      allowFramedSoftphone: true,   // optional
+      disableRingtone: false,       // optional
+      ringtoneUrl: "./ringtone.mp3" // optional
+     }
     });
     connect.agent(this.subscribeToAgentEvents);
 }
@@ -60,7 +67,7 @@ componentDidMount() {
 
   render() {
     return (
-      <div id="divContainer" style={{ width: "320px", height: "500px" }} > Loading ... </div>
+      <div id="containerDiv" style={{ width: "320px", height: "500px" }} > Loading ... </div>
     )
     }
   
