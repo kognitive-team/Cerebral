@@ -1,0 +1,41 @@
+ <Card className={classes.root}>
+      <CardHeader
+      
+        avatar={
+          <Avatar aria-label="account" className={classes.avatar}>
+            <AccountCircleIcon fontSize="large" />
+          </Avatar>
+        }
+        action={
+            <FormControlLabel
+          control={<Switch size="small" className={classes.toggleColor} checked={available} onChange={handleAvailableToggle} name="available"  />}
+          label="Available"
+        />
+        }
+        title="Sai Thotapalli"
+        subheader={available ? 'available' : 'offline'}
+      />
+      
+      <CardContent>
+       
+        </CardContent>
+
+    </Card>
+
+
+
+    useEffect(() => {
+    const container = document.getElementById("ccp");
+    connect.core.initCCP(container, {
+      ccpUrl: CCP_URL,
+      loginUrl: LOGIN_URL,
+      loginPopup: true,
+      loginPopupAutoClose: true,
+      region: REGION,
+      softphone: {
+        allowFramedSoftphone: true
+      }
+    });
+  }, []);
+
+  return <div id="ccp" style={{ width: "320px", height: "500px" }}></div>;

@@ -17,81 +17,52 @@ import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import "amazon-connect-streams";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 400,
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  avatar: {
-    backgroundColor: red[500],
-    width:60,
-    height:60
-  },
-  toggleColor:{
-    color:green[500]
-  }
-}));
-
 
   
 
-const CallPanel = () => {
-  const classes = useStyles()
-  const [available, setAvailable] = useState(false)
+class CallPanel extends React.Component {
   
+  constructor(props) {
+    super(props);
+    this.state = {
+       
+    };
   
+}
 
-  useEffect(() => {
-    const divContainer = document.createElement("divContainer")
-    const connect = window.connect;
+componentDidMount() {
+  const divContainer = document.createElement("divContainer")
+  const connect = window.connect;
   const instanceURL = "https://lonebridge.awsapps.com/connect/ccp#" 
+
+  console.log(connect)
     connect.core.initCCP(divContainer, {
       ccpUrl: instanceURL,
-      loginPopup: false,
-      loginPopupAutoClose: false,
-      region: "us-east-1",
       ccpLoadTimeout: 25000,
+      loginPopup: true,
+      loginPopupAutoClose: true,
+      region: "us-east-1",
+     
       softphone: {
         allowFramedSoftphone: true
       }
     });
-  }, []);
-
-
-  function subscribeToAgentEvents(agent) {
-    console.log('Inside subscription')
-    console.log(agent)
-    // Subscribing to Streams API Long Polling Agent events
-    window.myCPP.agent = agent;
-    
+    connect.agent(this.subscribeToAgentEvents);
 }
-    
 
-
-  const handleAvailableToggle = () => {
-    setAvailable(!available);
-  }
-
-
+ subscribeToAgentEvents(agent) {
+  console.log('Inside subscription')
+  console.log(agent)
+  // Subscribing to Streams API Long Polling Agent events
+  window.myCPP.agent = agent;
   
+}
 
-return (
-   <div id="divContainer" style={{ width: "320px", height: "500px" }} />
-)
-
-
+  render() {
+    return (
+      <div id="divContainer" style={{ width: "320px", height: "500px" }} > Loading ... </div>
+    )
+    }
+  
 }
 export default CallPanel;
