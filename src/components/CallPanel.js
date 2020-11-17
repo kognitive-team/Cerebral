@@ -57,7 +57,7 @@ const CallPanel = () => {
   useEffect(() => {
     const divContainer = document.createElement("divContainer")
     const connect = window.connect;
-  const instanceURL = "https://lonebridge.awsapps.com/connect/ccp#/" 
+  const instanceURL = "https://lonebridge.awsapps.com/connect/ccp#" 
     connect.core.initCCP(divContainer, {
       ccpUrl: instanceURL,
       loginPopup: false,
