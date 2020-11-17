@@ -60,8 +60,8 @@ const CallPanel = () => {
   const instanceURL = "https://lonebridge.awsapps.com/connect/ccp#/" 
     connect.core.initCCP(divContainer, {
       ccpUrl: instanceURL,
-      loginPopup: true,
-      loginPopupAutoClose: true,
+      loginPopup: false,
+      loginPopupAutoClose: false,
       region: "us-east-1",
       softphone: {
         allowFramedSoftphone: true
