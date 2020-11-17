@@ -33,7 +33,8 @@ class CallPanel extends React.Component {
 componentDidMount() {
   const containerDiv = document.createElement("containerDiv")
   const connect = window.connect;
-  const instanceURL = "https://lonebridge.awsapps.com/connect/ccp-v2" 
+  const instanceURL = "https://lonebridge.awsapps.com/connect/ccp-v2/sai.thotapalli" 
+
 
   console.log(connect)
   connect.core.initCCP(containerDiv, {
