@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.dlpd-root .initial-view .display {
+  width: 100%;
+  height: 20%;
+  background-color: white !important;
+}
+
+.dlpd-root .initial-view .display input{
+  
+  width: 80%;
+  margin-left: 10%;
+  height: 100%;
+  border: none;
+  font-size: 200%;
+  color: black !important; 
+  font-weight: 700;
+  font-family:Helvetica, sans-serif !important;
+  letter-spacing: 2px;
+} 

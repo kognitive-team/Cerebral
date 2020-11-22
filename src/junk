@@ -39,3 +39,140 @@
   }, []);
 
   return <div id="ccp" style={{ width: "320px", height: "500px" }}></div>;
+
+
+
+
+
+
+
+
+ <AppBar position="static">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          variant="scrollable"
+          scrollButtons="off"
+          aria-label="scrollable prevent tabs example"
+        >
+          <Tab icon={<PhoneIcon />} aria-label="phone" {...a11yProps(0)} />
+          <Tab icon={<FavoriteIcon />} aria-label="favorite" {...a11yProps(1)} />
+          <Tab icon={<PersonPinIcon />} aria-label="person" {...a11yProps(2)} />
+          <Tab icon={<HelpIcon />} aria-label="help" {...a11yProps(3)} />
+          <Tab icon={<ShoppingBasket />} aria-label="shopping" {...a11yProps(4)} />
+          <Tab icon={<ThumbDown />} aria-label="up" {...a11yProps(5)} />
+          <Tab icon={<ThumbUp />} aria-label="down" {...a11yProps(6)} />
+        </Tabs>
+      </AppBar>
+      <TabPanel value={value} index={0}>
+        Item One
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        Item Two
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        Item Three
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        Item Four
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        Item Five
+      </TabPanel>
+      <TabPanel value={value} index={5}>
+        Item Six
+      </TabPanel>
+      <TabPanel value={value} index={6}>
+        Item Seven
+      </TabPanel>
+
+
+ <div className="containerDiv" style={{ width: "320px", height: "500px" }} ref={this.containerDiv}> </div>
+        <Card className={classes.root}>
+          <CardHeader
+            avatar={
+              <Avatar aria-label="account" className={classes.avatar}>
+                <AccountCircleIcon fontSize="large" />
+              </Avatar>
+            }
+            action={
+              <FormControlLabel
+                control={<Switch size="small" checked={this.state.available} onChange={(e) => this.handleAvailableToggle(e)} name="available" />}
+                label="Available" />
+            }
+            title="Sai Thotapalli"
+            subheader={this.state.available ? 'available' : 'offline'} />
+          <CardContent>
+            <Tabs
+              value={this.state.tabValue}
+              indicatorColor="primary"
+              textColor="primary"
+              onChange={(e, newVal) => this.handleTabChange(e, newVal)}
+              aria-label="disabled tabs example">
+              <Tab icon={<PhoneIcon />} style={{maxWidth:"50%"}}/>
+              <Tab icon={<ChatBubbleIcon />} style={{maxWidth:"50%"}}/>
+              <Tab label="Active" />
+            </Tabs>
+          </CardContent>
+        </Card>
+
+        <div class="ui bottom attached segment">
+                <div class="ui inverted labeled icon left inline visible vertical demo sidebar menu">
+                    <a class="item">
+                        <i class="home icon"></i> Home
+                     </a>
+                    <a class="item">
+                        <i class="block layout icon"></i> Topics
+                    </a>
+                    <a class="item">
+                        <i class="smile icon"></i> Friends
+                     </a>
+                    <a class="item">
+                        <i class="calendar icon"></i> History
+                      </a>
+                </div>
+                <div class="pusher">
+                    <div class="ui basic segment">
+                       <CallPanel />
+                    </div>
+                </div>
+            </div>
+            <div class="ui top fixed menu pusher" style={{height:75}}>
+                    
+            </div>
+
+                <div class="ui inverted labeled icon left inline visible vertical demo sidebar menu">
+                    <a class="item">
+                        <i class="home icon"></i> Home
+                     </a>
+                    <a class="item">
+                        <i class="block layout icon"></i> Topics
+                    </a>
+                    <a class="item">
+                        <i class="smile icon"></i> Friends
+                     </a>
+                    <a class="item">
+                        <i class="calendar icon"></i> History
+                      </a>
+                </div>
+
+                //CallPanel 
+
+
+        <Segment.Group style={{ maxWidth: 400}}>
+          <Segment style={{ height: 75 }} >
+            <Header as='h4' floated="left">
+              <Icon circular color='teal' size="large" name='user' />
+              <Header.Content>
+                Sai Thotapalli
+             <Header.Subheader>Available</Header.Subheader>
+              </Header.Content>
+            </Header>
+            
+            <Header as='h4' floated="right">
+               <Checkbox toggle label="Available" /> 
+            </Header>
+          </Segment>
+          <Tab menu={{ attached: 'bottom' }} panes={panes} />
+        </Segment.Group>
+      </React.Fragment>
