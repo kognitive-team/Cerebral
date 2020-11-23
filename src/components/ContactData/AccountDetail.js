@@ -1,101 +1,97 @@
-import React from 'react'
-import { Grid, Image, Header, List, Label, Input, Form, Checkbox, Button } from 'semantic-ui-react'
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 import Faker from 'faker'
-
-class AccountDetail extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
-
-    componentDidMount() {
-        //  this.setFakeData()
-    }
+import { Typography } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import {formatDate } from '../utils'
 
 
-    render() {
-        return (
+const useStyles = makeStyles((theme) => ({
+    margin: {
+        margin: theme.spacing(1),
+    },
+    labelFont: {
+        ...theme.typography.button,
+        backgroundColor: theme.palette.background.paper,
+        fontWeight: 'bold'
+    },
+}));
 
-            <div>
+const AccountDetail = () => {
+    const classes = useStyles();
 
-                <Grid columns={2} divided>
-                    <Grid.Row>
-                        <Grid.Column >
-                            <Header as='h3'>Personal Details</Header>
-                            <Form>
-                                <Form.Group widths='equal'>
-                                    <Form.Field inline>
-                                        <label>First Name</label>
-                                        <Input value={Faker.name.firstName()} transparent readOnly placeholder='First name' />
-                                    </Form.Field>
+    return (
+        <div>
 
-                                    <Form.Field inline>
-                                        <label>Last Name</label>
-                                        <Input value={Faker.name.lastName()} transparent readOnly placeholder='First name' />
-                                    </Form.Field>
-
-                                    <Form.Field inline>
-                                        <label>Address</label>
-                                        <Input transparent readOnly placeholder='Address' value={Faker.address.streetAddress()} />
-                                        <Input transparent readOnly placeholder='City' value={Faker.address.city()} />
-                                        <Input transparent readOnly placeholder='State' value={Faker.address.state()} />
-                                        <Input transparent readOnly placeholder='Zip' value={Faker.address.zipCode()} />
-                                    </Form.Field>
-
-                                    <Form.Field inline>
-                                        <label>Phone</label>
-                                        <Input transparent readOnly placeholder='Phone' value={Faker.phone.phoneNumberFormat()} />
-                                    </Form.Field>
-                                    <Form.Field inline>
-                                        <label>Email</label>
-                                        <Input transparent readOnly placeholder='Email' value={Faker.internet.email()} />
-                                    </Form.Field>
-
-
-                                </Form.Group>
-                            </Form>
-                        </Grid.Column>
-
-                    </Grid.Row>
-
-                    <Grid.Row>
-                        <Grid.Column >
-                            <Header as='h3'>Account Details</Header>
-                            <Form>
-                                <Form.Group widths='equal'>
-
-                                    <Form.Field inline>
-                                        <label>Account Number</label>
-                                        <Input value={Faker.finance.account()} transparent readOnly placeholder='Account Number ' />
-                                    </Form.Field>
-
-                                    <Form.Field inline>
-                                        <label>Last Visited</label>
-                                        <Input transparent readOnly placeholder='Address' value={Faker.date.past()} />
-
-                                    </Form.Field>
-
-                                    <Form.Field inline>
-                                        <label>Next Visit</label>
-                                        <Input transparent readOnly placeholder='Phone' value={Faker.date.future()} />
-                                    </Form.Field>
-
-                                    <Form.Field inline>
-                                        <label>Pending Payments</label>
-                                        <Input transparent readOnly placeholder='Phone' value={`$${Faker.finance.amount()}`} />
-                                    </Form.Field>
-
-                                </Form.Group>
-                            </Form>
-                        </Grid.Column>
-
-                    </Grid.Row>
+            <Grid container spacing={1}>
+                <Grid item xs={12}>
+                    <Typography variant="h5" component="h2">
+                        Personal Details
+                    </Typography>
+                    <Divider />
+                    <Box component="span" m={1}>
+                    </Box>
                 </Grid>
 
 
-            </div>
-        )
-    }
+                <Grid item xs={4}>
+                    <Box component="div" className={classes.labelFont} display="inline">First Name: </Box>
+                    <Box component="div" display="inline"> {Faker.name.firstName()} </Box>
+                </Grid>
+                <Grid item xs={4}>
+                    <Box component="div" className={classes.labelFont} display="inline">Last Name: </Box>
+                    <Box component="div" display="inline"> {Faker.name.lastName()} </Box>
+                </Grid>
+                <Grid item xs={4}>
+                    <Box component="div" className={classes.labelFont} display="inline">Address: </Box>
+                    <Box component="div" display="inline"> {Faker.address.streetAddress()} </Box>
+                    <Box component="div" display="inline"> {Faker.address.city()} , {Faker.address.state()} </Box>
+                </Grid>
+
+                <Grid item xs={4}>
+                    <Box component="div" className={classes.labelFont} display="inline">Email: </Box>
+                    <Box component="div" display="inline"> {Faker.internet.email()} </Box>
+                </Grid>
+
+                <Grid item xs={4}>
+                    <Box component="div" className={classes.labelFont} display="inline">Phone: </Box>
+                    <Box component="div" display="inline"> {Faker.phone.phoneNumberFormat()} </Box>
+                </Grid>
+
+                <Grid item xs={12}>
+                <Box component="span" m={1} />
+                    <Typography variant="h5" component="h2">
+                        Account Details
+                    </Typography>
+                    <Divider />
+                    <Box component="span" m={1} />
+                    
+                </Grid>
+
+                <Grid item xs={4}>
+                    <Box component="div" className={classes.labelFont} display="inline">Account: </Box>
+                    <Box component="div" display="inline"> {Faker.finance.account()} </Box>
+                </Grid>
+                <Grid item xs={4}>
+                    <Box component="div" className={classes.labelFont} display="inline">Last Visit Date: </Box>
+                    <Box component="div" display="inline"> {formatDate(Faker.date.past(), "DD/MM/YYYY")} </Box>
+                </Grid>
+                <Grid item xs={4}>
+                    <Box component="div" className={classes.labelFont} display="inline">Next Visit Date: </Box>
+                    <Box component="div" display="inline"> {formatDate(Faker.date.future(), "DD/MM/YYYY")} </Box>
+                </Grid>
+                <Grid item xs={4}>
+                    <Box component="div" className={classes.labelFont} display="inline">Payment Due: </Box>
+                    <Box component="div" display="inline"> {Faker.finance.amount()} </Box>
+                </Grid>
+            </Grid>
+        </div>
+
+
+
+    );
 }
 
 export default AccountDetail;

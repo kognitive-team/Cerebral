@@ -1,7 +1,5 @@
 import React from 'react'
-import { Segment } from 'semantic-ui-react'
-import { Label, Icon, Tab, Header, Checkbox, List, Image } from 'semantic-ui-react'
-import PhoneEngage from '../components/Phone/PhoneEngage'
+
 import  { addCurrentAgent, handleAgentStateChangeAction }  from '../actions'
 import { connect } from 'react-redux';
 import "amazon-connect-streams";
@@ -54,11 +52,9 @@ class EngagePanel extends React.Component {
 subscribeToAgentEvents(agent) {
     AWSConnect.agent = agent;
     console.log(agent.getState().name)
-    this.setAvailabileStatus(agent.getState().name != "Offline"? true : false)
+    this.setAvailabileStatus(agent.getState().name !== "Offline"? true : false)
     console.log(this.state.availableStatus)
-    
     agent.onOffline(this.agentGoOffline);
-     
     this.setAgentDataOnState(agent)
 }
 setAgentDataOnState(agent){
@@ -103,8 +99,7 @@ agentGoAvailable() {
 
 
 toggleAgentAvailable(){
-
-  if (AWSConnect.agent.getState().name != 'Offline' ){
+  if (AWSConnect.agent.getState().name !== 'Offline' ){
       this.agentGoOffline()
       this.setAvailabileStatus (false)
   }
@@ -116,26 +111,9 @@ toggleAgentAvailable(){
 }
 
  render() {
-
-        const panes = [
-            {
-                menuItem: { key: 'phone', icon: 'phone', content: 'Phone' },
-                render: () => <Tab.Pane floated="left" style={{ borderBottom: 'none' }}><PhoneEngage /></Tab.Pane>,
-            },
-            {
-                menuItem: { key: 'chat', icon: 'chat', content: 'Chat' },
-                render: () => <Tab.Pane>Tab 2 Content</Tab.Pane>,
-            },
-        ]
         return (
-
             <React.Fragment>
-             
-                <Segment.Group style={{ maxWidth: 350 }}>
-                <div className="containerDiv" style={{ width: "350px", height: "500px"}} ref={this.containerDiv}> </div>
-                
-                   
-                </Segment.Group>
+                <div style={{width:'320px' , height:'500px'}}  ref={this.containerDiv}> </div>
             </React.Fragment>
         )
     }

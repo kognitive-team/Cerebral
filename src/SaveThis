@@ -1,0 +1,35 @@
+<div>
+    <LeftNav />
+
+      <div className="cerebral-dummy-class pusher">
+        <div className="ui grid stackable padded" >
+          <div className="four wide computer eight wide tablet sixteen wide mobile column">
+            <TopNav />
+          </div>
+        </div>
+        <div className="main-content">
+          <div className="ui grid stackable padded">
+            <div className="three wide computer six wide tablet sixteen wide mobile column">
+              <EngagePanel />
+            </div>
+            <div className="eight wide computer eight wide tablet sixteen wide mobile column">
+              <ContactPanel />
+            </div>
+            <div className="four wide computer eight wide tablet sixteen wide mobile column">
+              <NextStepAction />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ const panes = [
+            {
+                menuItem: { key: 'phone', icon: 'phone', content: 'Phone' },
+                render: () => <Tab.Pane floated="left" style={{ borderBottom: 'none' }}><PhoneEngage /></Tab.Pane>,
+            },
+            {
+                menuItem: { key: 'chat', icon: 'chat', content: 'Chat' },
+                render: () => <Tab.Pane>Tab 2 Content</Tab.Pane>,
+            },
+        ]
