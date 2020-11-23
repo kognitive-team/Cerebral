@@ -1,7 +1,7 @@
 import React , { useState, useEffect }from 'react'
 import _ from 'lodash';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBackspace } from '@fortawesome/free-solid-svg-icons'
+
+
 
 const PhoneDialpad = (props) => {
 
@@ -89,7 +89,7 @@ const PhoneDialpad = (props) => {
                 </div>
                 <div class="four wide column">
                     <a class="ui large white circle label">
-                        {!_.isEmpty(dialedNumber) ? < FontAwesomeIcon onClick = { () => (removeDialedNumber())} icon={faBackspace} /> : <div/>}
+                    
                     </a>
                 </div>
                 <div class="three wide column">
@@ -101,3 +101,4 @@ const PhoneDialpad = (props) => {
 }
 
 export default PhoneDialpad;
+//    {!_.isEmpty(dialedNumber) ? < FontAwesomeIcon onClick = { () => (removeDialedNumber())} icon={faBackspace} /> : <div/>}
