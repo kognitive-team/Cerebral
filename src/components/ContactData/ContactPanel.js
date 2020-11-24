@@ -84,9 +84,7 @@ const ContactPanel = () =>  {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        
         <AccountDetail />
-
 
       </TabPanel>
       <TabPanel value={value} index={1}>

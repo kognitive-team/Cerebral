@@ -84,3 +84,14 @@ body {
   
   box-shadow: none;
 }
+
+iframe {
+  border-width: 0px !important;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+}
+
+.MuiBox-root-28 {
+  margin: 0px !important;
+}

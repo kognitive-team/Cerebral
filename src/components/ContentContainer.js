@@ -36,21 +36,21 @@ const ContentContainer = () => {
 <div className={classes.root}>
     <div className={classes.toolbar} />
     <Grid container className={classes.gridSpacing} spacing={2}>
-        <Grid item xs={2}>
+        <Grid item xs={12} lg={2} md={12} >
         <Box component="span" m={1}>
             <EngagePanel />
         </Box>
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={12} lg={5} md={12}>
            <Card>
-             <CardHeader title= { <Typography gutterBottom variant="h4" component="h2">  Contact Details </Typography> } />
+             <CardHeader title= { <Typography gutterBottom variant="h5" component="h2">  Contact Details </Typography> } />
              <Divider />
              <CardContent>
                  <ContactPanel />
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={12} lg={5} md={6} md ={12}>
             <NextStepAction />
         </Grid>
     </Grid>

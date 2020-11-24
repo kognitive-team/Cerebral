@@ -4,8 +4,24 @@ import  { addCurrentAgent, handleAgentStateChangeAction }  from '../actions'
 import { connect } from 'react-redux';
 import "amazon-connect-streams";
 import { CONNECT_INSTANCE_URL , AWS_REGION } from '../constants'
+import Paper from '@material-ui/core/Paper';
+import { withStyles } from '@material-ui/core/styles';
 
 const AWSConnect = window.connect;
+
+const styles = (theme) => ({
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > *': {
+          margin: theme.spacing(1),
+          width: theme.spacing(16),
+          height: '500px',
+        },
+      },
+   
+});
+
 
 class EngagePanel extends React.Component {
   constructor(props) {
@@ -111,9 +127,12 @@ toggleAgentAvailable(){
 }
 
  render() {
+    const classes = this.props;
         return (
             <React.Fragment>
-                <div style={{width:'320px' , height:'500px'}}  ref={this.containerDiv}> </div>
+                <Paper >
+                    <div style={{width:'380px' , height:'500px'}}  ref={this.containerDiv}> </div>
+                </Paper>
             </React.Fragment>
         )
     }
@@ -132,6 +151,6 @@ const mapStateToProps = (state) => {
     };
 }   
 
-export default connect(mapStateToProps, mapDispatchToProps )( EngagePanel );
+export default connect(mapStateToProps, mapDispatchToProps ) (withStyles(styles)( EngagePanel ));
 
 

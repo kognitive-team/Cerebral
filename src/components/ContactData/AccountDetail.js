@@ -27,7 +27,7 @@ const AccountDetail = () => {
 
             <Grid container spacing={1}>
                 <Grid item xs={12}>
-                    <Typography variant="h5" component="h2">
+                    <Typography variant="h6" component="h2">
                         Personal Details
                     </Typography>
                     <Divider />
@@ -62,7 +62,7 @@ const AccountDetail = () => {
 
                 <Grid item xs={12}>
                 <Box component="span" m={1} />
-                    <Typography variant="h5" component="h2">
+                    <Typography variant="h6" component="h2">
                         Account Details
                     </Typography>
                     <Divider />

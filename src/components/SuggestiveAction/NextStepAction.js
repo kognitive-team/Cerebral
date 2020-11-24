@@ -34,18 +34,18 @@ const NextStepAction = () => {
         <Card className={classes.root}>
             
             <CardHeader   
-                title= {<Typography gutterBottom variant="h4" component="h2"> Suggested Next Actions </Typography> } />
+                title= {<Typography gutterBottom variant="h5" component="h2"> Suggested Next Actions </Typography> } />
                    <Divider />
             <CardActionArea>
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant="h6" component="h2">
                         Payment Due Notice
                         </Typography>
                     <Typography variant="body1" color="textSecondary" component="p">
                     <div> A reminder was sent to the customer regarding a payment notice. The user might be calling to make the payment. </div> <br />
                     <Button variant="contained" color="primary"> Collect Payment </Button>
                   </Typography><br />
-                  <Typography gutterBottom variant="h5" component="h2">
+                  <Typography gutterBottom variant="h6" component="h2">
                         Recent Visit
                         </Typography>
                     <Typography variant="body1" color="textSecondary" component="p">
