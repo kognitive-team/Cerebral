@@ -22,13 +22,7 @@ const NextStepAction = () => {
 
     const classes = useStyles();
 
-    const createSuggestedActions = () => {
-
-        return (
-          
-            <div> Sai Thotapalli</div>
-        )
-    }
+    
 
     return (
         <Card className={classes.root}>

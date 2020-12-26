@@ -176,3 +176,99 @@
           <Tab menu={{ attached: 'bottom' }} panes={panes} />
         </Segment.Group>
       </React.Fragment>
+
+      , function(err, data) {
+            if (err) console.log(err, err.stack); // an error occurred
+            else     {
+                
+                  var userList = data.UserSummaryList;
+       
+            }         // successful response
+          });
+
+
+          getUserDetailList() {
+     var userList = this.state.userList
+     var userListArray = []
+     var count = 0
+    userList.map(  (userItem, index) =>  {  
+        
+        var userObj = {};
+        this.getUserDetail(userItem).then(
+            (data) => {
+                userObj.id = index;
+                userObj.firstname = data.User.IdentityInfo.FirstName
+                userObj.lastname = data.User.IdentityInfo.LastName
+                userObj.email = data.User.IdentityInfo.Email
+                userObj.phonetype = data.User.PhoneConfig.PhoneType
+                userObj.deskphonenumber = data.User.PhoneConfig.DeskPhoneNumber
+                userObj.autoaccept = data.User.PhoneConfig.AutoAccept
+                 }
+            )
+            userListArray.push(userObj)
+        })
+
+        return userListArray;
+    }
+
+    async getUserDetail (userItem) {
+        var params = {
+            InstanceId: '28466db6-06f0-4ab2-a6d1-2377336d9c9c', /* required */
+            UserId: userItem.Id/* required */
+        };
+        return await AWSConnect.describeUser(params).promise()
+    }
+
+
+    renderDataGrid(){
+        
+       
+       
+
+    }
+
+
+     renderDataGrid(){
+        
+        const classes = this.props.classes;
+        const userListDetailsArray = this.props.userListWithDetails.userList
+   
+        
+
+        const tableDom = <React.Fragment>
+        <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>First Name</StyledTableCell>
+            <StyledTableCell align="right">Last Name</StyledTableCell>
+            <StyledTableCell align="right">Email</StyledTableCell>
+            <StyledTableCell align="right">Phone Type</StyledTableCell>
+            <StyledTableCell align="right">Desk Phone Number</StyledTableCell>
+            <StyledTableCell align="right">Auto Accept</StyledTableCell>
+            
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {userListDetailsArray.map((row) => (
+             
+            <StyledTableRow key={row.firstname}>
+              <StyledTableCell component="th" scope="row">
+                {row.firstname}
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.lastname}</StyledTableCell>
+              <StyledTableCell align="right">{row.email}</StyledTableCell>
+              <StyledTableCell align="right">{row.phonetype}</StyledTableCell>
+              <StyledTableCell align="right">{row.deskphonenumber}</StyledTableCell>
+              <StyledTableCell align="right">{row.autoaccept}</StyledTableCell>
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+    </React.Fragment>
+        
+    return this.state.userDetails ? tableDom : <div />       
+       
+
+    }

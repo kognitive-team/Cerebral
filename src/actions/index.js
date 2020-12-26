@@ -1,20 +1,26 @@
+import { CONNECT_QUEUE_LIST_URL} from '../constants'
+import Axios from 'axios'
 
 export const addCurrentAgent = (agent) => {
-    console.log('Inside Dispatcher')
-    console.log(agent)
     return async dispatch => {
-           dispatch({ type: 'ADD_CURRENT_AGENT', payload: agent })
+        dispatch({ type: 'ADD_CURRENT_AGENT', payload: agent })
     }
-}    
+}
 
 
-export const handleAgentStateChangeAction = (agent) => {
-    console.log('Inside Dispatcher')
-    console.log(agent)
+export const handleAgentStateChangeAction = (state) => {
     return async dispatch => {
-        
-           dispatch({ type: 'AGENT_STATE_CHANGE', payload: agent })
+        dispatch({ type: 'AGENT_STATE_CHANGE', payload: state })
     }
-}    
+}
+
+export const addQueueList = (queueList) => {
+    return async dispatch => {
+        dispatch({ type: 'ADD_QUEUE_LIST', payload: queueList })
+    }
+}
+
+
+
 
 

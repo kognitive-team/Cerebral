@@ -23,9 +23,12 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   gridSpacing:{
-    margin:theme.spacing(1)
+    margin:theme.spacing(2)
 },   
   toolbar: theme.mixins.toolbar,
+ cardSize:{
+  maxWidth: '100%',
+ } 
   
 }));
 
@@ -36,13 +39,13 @@ const ContentContainer = () => {
 <div className={classes.root}>
     <div className={classes.toolbar} />
     <Grid container className={classes.gridSpacing} spacing={2}>
-        <Grid item xs={12} lg={2} md={12} >
-        <Box component="span" m={1}>
+        <Grid item xs={12} lg={2} md={4} >
+        <Box component="span">
             <EngagePanel />
         </Box>
         </Grid>
-        <Grid item xs={12} lg={5} md={12}>
-           <Card>
+        <Grid item xs={12} lg={6} md={12}>
+           <Card className={classes.cardSize}>
              <CardHeader title= { <Typography gutterBottom variant="h5" component="h2">  Contact Details </Typography> } />
              <Divider />
              <CardContent>
@@ -50,7 +53,7 @@ const ContentContainer = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} lg={5} md={6} md ={12}>
+        <Grid item xs={12} lg={4} md={6} md ={12}>
             <NextStepAction />
         </Grid>
     </Grid>
